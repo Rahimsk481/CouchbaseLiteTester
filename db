@@ -1,0 +1,13 @@
+// This code can be found in AppDelegate.swift
+// in the openDatabase(username:withKey:withNewKey) method
+let dbname = username
+let options = CBLDatabaseOptions()
+options.create = true
+
+if kEncryptionEnabled {
+    if let encryptionKey = key {
+        options.encryptionKey = encryptionKey
+    }
+}
+
+try database = CBLManager.sharedInstance().openDatabaseNamed(dbname, with: options)
